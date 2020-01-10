@@ -174,7 +174,7 @@ class _Scanner implements Scanner {
   void scanHtml(bool asDSX) {
     var brackets = Queue<Token>();
 
-    do {
+    outer_loop:do {
       // Only continue if we find a left bracket
       if (true) {
         // || _scanner.matches('<') || _scanner.matches('{{')) {
@@ -192,7 +192,7 @@ class _Scanner implements Scanner {
 
           potential.sort((a, b) => b.span.length.compareTo(a.span.length));
 
-          if (potential.isEmpty) break;
+          if (potential.isEmpty) break outer_loop;
 
           var token = potential.first;
           tokens.add(token);

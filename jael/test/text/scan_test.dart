@@ -4,6 +4,10 @@ import 'package:test/test.dart';
 import 'common.dart';
 
 main() {
+  test('handles forward slash before attribute', () {
+    scan('<img class=\\"mrfreeze\">', sourceUrl: 'test.jael').tokens;
+  });
+
   test('plain html', () {
     var tokens = scan('<img src="foo.png" />', sourceUrl: 'test.jael').tokens;
     tokens.forEach(print);
